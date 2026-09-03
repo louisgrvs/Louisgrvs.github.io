@@ -1,3 +1,8 @@
+```css
+/* =========================
+   Base
+   ========================= */
+
 body {
     max-width: 900px;
     margin: 60px auto;
@@ -7,73 +12,123 @@ body {
     font-size: 18px;
     line-height: 1.7;
 
-    color: #222;
-    background-color: white;
+    color: #20242a;
+    background-color: #f7f8fa;
 }
 
-/* Header */
+
+/* =========================
+   Header
+   ========================= */
 
 header {
     display: flex;
     justify-content: space-between;
     align-items: baseline;
 
-    margin-bottom: 70px;
+    margin-bottom: 65px;
+    padding-bottom: 18px;
+
+    border-bottom: 2px solid #176b87;
 }
 
 header h1 {
     margin: 0;
-    font-size: 30px;
+
+    font-size: 32px;
     font-weight: normal;
+    letter-spacing: -0.5px;
+
+    color: #176b87;
 }
+
+
+/* =========================
+   Navigation
+   ========================= */
 
 nav a {
     margin-left: 25px;
 
-    color: #222;
+    color: #176b87;
     text-decoration: none;
+
+    transition: color 0.2s ease;
 }
 
 nav a:hover {
+    color: #d9822b;
     text-decoration: underline;
 }
 
-/* Main content */
+
+/* =========================
+   Main content
+   ========================= */
 
 h2 {
-    font-size: 25px;
-    font-weight: normal;
     margin-top: 50px;
+    margin-bottom: 20px;
+
+    font-size: 26px;
+    font-weight: normal;
+
+    color: #176b87;
 }
 
 p {
     max-width: 750px;
 }
 
-/* Footer */
+
+/* Links inside the text */
+
+main a {
+    color: #176b87;
+    text-decoration: none;
+}
+
+main a:hover {
+    color: #d9822b;
+    text-decoration: underline;
+}
+
+
+/* =========================
+   Footer
+   ========================= */
 
 footer {
     margin-top: 100px;
     padding-top: 20px;
 
-    border-top: 1px solid #ddd;
+    border-top: 1px solid #d8dde2;
 
     font-size: 14px;
-    color: #666;
+    color: #737b83;
 }
 
-/* Mobile */
+
+/* =========================
+   Mobile
+   ========================= */
 
 @media (max-width: 700px) {
 
     body {
         margin: 30px auto;
+        padding: 0 20px;
+
         font-size: 17px;
     }
 
     header {
         display: block;
-        margin-bottom: 50px;
+        margin-bottom: 45px;
+    }
+
+    header h1 {
+        font-size: 28px;
     }
 
     nav {
@@ -85,3 +140,4 @@ footer {
         margin-right: 20px;
     }
 }
+```
