@@ -10,6 +10,18 @@
     <link rel="stylesheet" href="../style.css">
 </head>
 
+<script>
+  MathJax = {
+    tex: {
+      inlineMath: [['$', '$'], ['\\(', '\\)']]
+    }
+  };
+</script>
+
+<script async
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+</script>
+
 <body>
 
 <header>
@@ -26,6 +38,9 @@
 
 
 <main>
+    <p>
+        Je présente ici le sujet de mon stage à l'Université de Bruxelles libre, l'Inria et la Sorbonne Université, sous la direction de Denis Bonheure, Céline Grandmont et Fabien Vergnet.
+    </p>
 
     <h2>La mécanique des fluides autour d'une particule</h2>
 
@@ -47,17 +62,33 @@
         Pour plus de facilité et pour briser la symétrie parfaite, on va supposer que notre particule est ovale. 
         On va aussi supposer que notre écoulement est 'laminaire', ce qui signifie qu'il est très calme. On peut par exemple imaginer (TO DO : Trouver des exemples)
 
-        On est alors en régime de Stokes
+        On est alors en régime de Stokes. Nous sommes parti du papier de Sugihara-Seki TO DO : citation.
     </p>
 
 
     <h2>Les équations</h2>
 
     <p>
+        On note $B$ la particule et $X_B$ son centre, $a$ et $b$ ses rayons.
+        Notre canal est représenté par $\Omega = \mathbb{R} \times\[-d , d]$ pour $d>0$ fixé. Alors le fluide évolue dans le domaine $\Omega \setminus B$.
+        Comme la particule se déplace dans le temps, on a que $B= B(t)$ et donc que le domaine dans lequel le fluide se déplace change avec le temps. C'est donc un système dynamique !
         Dans le régime de Stokes, le mouvement du fluide est décrit par les équations suivantes  :
-        
     </p>
+    \[
+    -\Delta u + \nabla p = 0 \quad \text{dans } \Omega.
+    \]
+    \[
+    \operatorname{div}(u)=0.
+    \]
+    
+    \[
+    \(u=0\) \text{sur} \(\partial\Omega\) 
+    \]
 
+    \[
+    u(t,x) = \dot{X}_B + \dot{\theta}(x - X_B ).
+    \]
+    </p>
     <p>
         ...
     </p>
@@ -70,7 +101,6 @@
     </p>
 
 </main>
-
 
 <footer>
     © 2026 Louis Gervais
