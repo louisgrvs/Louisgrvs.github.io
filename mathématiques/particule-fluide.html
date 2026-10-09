@@ -8,19 +8,19 @@
     <title>La mécanique des fluides autour d'une particule</title>
 
     <link rel="stylesheet" href="../style.css">
+
+    <script>
+        MathJax = {
+            tex: {
+                inlineMath: [['$', '$'], ['\\(', '\\)']]
+            }
+        };
+    </script>
+
+    <script async
+        src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+    </script>
 </head>
-
-<script>
-  MathJax = {
-    tex: {
-      inlineMath: [['$', '$'], ['\\(', '\\)']]
-    }
-  };
-</script>
-
-<script async
-  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
-</script>
 
 <body>
 
@@ -69,37 +69,86 @@
     <h2>Les équations</h2>
 
     <p>
-        On note $B$ la particule et $X_B$ son centre, $a$ et $b$ ses rayons.
-        Notre canal est représenté par $\Omega = \mathbb{R} \times\[-d , d]$ pour $d>0$ fixé. Alors le fluide évolue dans le domaine $\Omega \setminus B$.
+        On note $B$ la particule et $X_B := (X_c, Y_c)$ son centre, $a$ et $b$ ses rayons.
+        Notre canal est représenté par $\Omega = \mathbb{R} \times [-d,d]$ pour $d>0$ fixé. Alors le fluide évolue dans le domaine $\Omega \setminus B$.
         Comme la particule se déplace dans le temps, on a que $B= B(t)$ et donc que le domaine dans lequel le fluide se déplace change avec le temps. C'est donc un système dynamique !
         Dans le régime de Stokes, le mouvement du fluide est décrit par les équations suivantes  :
     </p>
     \[
-    -\Delta u + \nabla p = 0 \quad \text{dans } \Omega.
+    -\Delta u + \nabla p = 0 \quad \text{dans } \Omega(t).
     \]
     \[
     \operatorname{div}(u)=0.
     \]
     
     \[
-    \(u=0\) \text{sur} \(\partial\Omega\) 
+    u=0\text{sur} \partial\Omega(t)
     \]
 
     \[
-    u(t,x) = \dot{X}_B + \dot{\theta}(x - X_B ).
+    u(t,x) = \dot{X}_B + \dot{\theta}(x - X_B )^\perp, \text{ pour } x \in \partial B(t).
     \]
-    </p>
     <p>
-        ...
+        On rajoute de plus deux équations qui vont nous permettre de résoudre notre système dynamique : 
     </p>
 
-
+    \[
+    \int_{\partial B}] \sigma(u,p)\vec{n} \mathrm{d}x = 0 
+    \]
+    \[
+    \int_{\partial B}] \sigma(u,p)\vec{n} \cdot (x - X_B)^\perp \mathrm{d}x = 0.
+    \]
     <h2>Une petite simulation</h2>
 
     <p>
-        Ici, on pourra mettre une simulation.
+        Voici une simulation qui va nous permettre de mieux visualiser le problème : 
+    </p>
+    <img
+        src="trajectoire1.gif"
+        alt="Trajectoire de la particule dans le canal "
+    >
+    <p>
+        Si on est astucieux, on peut voir qu'on peut décomposer notre solution du système dynamique en plusieurs 'briques élémentaires',
+        qui sont des solutions avec des conditions de bords indépendantes du temps. On les notes $u^\|$, $u^p$, $u^\circlearrowleft$ et $u^\perp$. 
     </p>
 
+    <p>
+        De ces briques élémentaires et des conditions de notre système dynamique, on a l'EDO suivante : 
+        TO DO
+    </p>
+    \[
+    \begin{pmatrix}
+    A_{11} & A_{12} & A_{13} \\
+    A_{12} & A_{22} & A_{23} \\
+    A_{13} & A_{23} & A_{33}
+    \end{pmatrix}
+    \begin{pmatrix}
+    \dot{X}_c \\
+    \dot{Y}_c \\
+    \dot{\theta}
+    \end{pmatrix}  = 
+    \begin{pmatrix}
+    b_1 \\
+    b_2 \\
+    b3
+    \end{pmatrix}.
+    \] 
+    <p>
+        Où les quantitées présentes dans cette EDO sont obtenus par les briques élémentaires.
+    </p>
+    <p>
+        Ces briques nous permettent de déterminer $\dot{X}_B$ et $\dot{\theta}$ et donc de montrer que le système dynamique est bien posé. 
+        On voit aussi qu'elle nous permet d'obtenir des plans de phases de notre systèmes, qui est en gros une carte de comment la particule se déplace.
+
+        Ce qui est remarquable, et que Sugihara-Seki avait déjà remarqué dans TO DO : citation, 
+        est que la dynamqiue du plan de phase va changer en fonction de la taille relative de la particule dans le canal et de son coefficient d'anisotropie.
+
+        Ainsi, si on introduit la quantitée $\beta = ab/d^2$, qui correspond à l'aire que la aprticule va occuper dans le canal, et $\alpha= a/b$, 
+        on observe qu'en fonction de $\alpha$ et $\beta$, les plans de phases ne sont pas les mêmes :
+        TO DO : mettre des plans de phases pour plusieurs beta
+    </p>
+
+    
 </main>
 
 <footer>
